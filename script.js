@@ -110,6 +110,7 @@ async function derivarChave(senha, salt) {
 
 function mostrarMensagemCofre(mensagem, tipo) {
     const elemento = document.getElementById("vault-message");
+    if (!elemento) return;
     elemento.textContent = mensagem;
     elemento.className = "status-message " + tipo;
 }
@@ -118,233 +119,248 @@ function mostrarMensagemCofre(mensagem, tipo) {
 
 const formularioCofre = document.getElementById("vault-form");
 
-formularioCofre.addEventListener("submit", async function (evento) {
-    evento.preventDefault();
+if (formularioCofre) {
+    formularioCofre.addEventListener("submit", async function (evento) {
+        evento.preventDefault();
 
-    const botao = formularioCofre.querySelector("button[type='submit']");
+        const botao = formularioCofre.querySelector("button[type='submit']");
 
-    const nome = document.getElementById("health-name").value.trim();
-    const sangue = document.getElementById("health-blood").value;
-    const alergias = document.getElementById("health-allergies").value.trim();
-    const medicamentos = document.getElementById("health-medicines").value.trim();
-    const contato = document.getElementById("health-contact").value.trim();
+        const nome = document.getElementById("health-name").value.trim();
+        const sangue = document.getElementById("health-blood").value;
+        const alergias = document.getElementById("health-allergies").value.trim();
+        const medicamentos = document.getElementById("health-medicines").value.trim();
+        const contato = document.getElementById("health-contact").value.trim();
 
-    const senha = document.getElementById("vault-password").value;
-    const confirmacao = document.getElementById("vault-confirm").value;
+        const senha = document.getElementById("vault-password").value;
+        const confirmacao = document.getElementById("vault-confirm").value;
 
-    if (!window.crypto || !window.crypto.subtle) {
-        mostrarMensagemCofre(
-            "A criptografia não está disponível neste ambiente. Abra o site em HTTPS ou localhost.",
-            "error"
-        );
-        return;
-    }
+        if (!window.crypto || !window.crypto.subtle) {
+            mostrarMensagemCofre(
+                "A criptografia não está disponível neste ambiente. Abra o site em HTTPS ou localhost.",
+                "error"
+            );
+            return;
+        }
 
-    if (senha.length < 8) {
-        mostrarMensagemCofre(
-            "A senha precisa ter pelo menos 8 caracteres.",
-            "error"
-        );
-        return;
-    }
+        if (senha.length < 8) {
+            mostrarMensagemCofre(
+                "A senha precisa ter pelo menos 8 caracteres.",
+                "error"
+            );
+            return;
+        }
 
-    if (senha !== confirmacao) {
-        mostrarMensagemCofre(
-            "As senhas não são iguais. Confira e tente novamente.",
-            "error"
-        );
-        return;
-    }
+        if (senha !== confirmacao) {
+            mostrarMensagemCofre(
+                "As senhas não são iguais. Confira e tente novamente.",
+                "error"
+            );
+            return;
+        }
 
-    if (!nome || !sangue) {
-        mostrarMensagemCofre(
-            "Preencha o nome fictício e o tipo sanguíneo.",
-            "error"
-        );
-        return;
-    }
+        if (!nome || !sangue) {
+            mostrarMensagemCofre(
+                "Preencha o nome fictício e o tipo sanguíneo.",
+                "error"
+            );
+            return;
+        }
 
-    const dados = {
-        nome: nome,
-        tipoSanguineo: sangue,
-        alergias: alergias || "Nenhuma informada",
-        medicamentos: medicamentos || "Nenhum informado",
-        contatoEmergencia: contato || "Não informado"
-    };
-
-    botao.disabled = true;
-    botao.textContent = "Criptografando...";
-
-    try {
-        const salt = crypto.getRandomValues(new Uint8Array(16));
-        const iv = crypto.getRandomValues(new Uint8Array(12));
-        const chave = await derivarChave(senha, salt);
-
-        const codificador = new TextEncoder();
-        const dadosEmBytes = codificador.encode(JSON.stringify(dados));
-
-        const conteudoCriptografado = await crypto.subtle.encrypt(
-            {
-                name: "AES-GCM",
-                iv: iv
-            },
-            chave,
-            dadosEmBytes
-        );
-
-        cofreCriptografado = {
-            salt: paraBase64(salt),
-            iv: paraBase64(iv),
-            conteudo: paraBase64(new Uint8Array(conteudoCriptografado))
+        const dados = {
+            nome: nome,
+            tipoSanguineo: sangue,
+            alergias: alergias || "Nenhuma informada",
+            medicamentos: medicamentos || "Nenhum informado",
+            contatoEmergencia: contato || "Não informado"
         };
 
-        document.getElementById("encrypted-output").value =
-            JSON.stringify(cofreCriptografado, null, 2);
+        botao.disabled = true;
+        botao.textContent = "Criptografando...";
 
-        document.getElementById("vault-encrypted").hidden = false;
-        formularioCofre.reset();
+        try {
+            const salt = crypto.getRandomValues(new Uint8Array(16));
+            const iv = crypto.getRandomValues(new Uint8Array(12));
+            const chave = await derivarChave(senha, salt);
 
-        document.getElementById("vault-decrypted").hidden = true;
-        document.getElementById("decrypt-password").value = "";
+            const codificador = new TextEncoder();
+            const dadosEmBytes = codificador.encode(JSON.stringify(dados));
 
-        mostrarMensagemCofre(
-            "Dados criptografados com sucesso! Agora digite sua senha acima para desbloquear.",
-            "success"
-        );
-    } catch (erro) {
-        console.error("Erro na criptografia:", erro);
-        mostrarMensagemCofre(
-            "Não foi possível criptografar os dados. Tente novamente.",
-            "error"
-        );
-    } finally {
-        botao.disabled = false;
-        botao.textContent = "🔒 Criptografar dados";
-    }
-});
+            const conteudoCriptografado = await crypto.subtle.encrypt(
+                {
+                    name: "AES-GCM",
+                    iv: iv
+                },
+                chave,
+                dadosEmBytes
+            );
+
+            cofreCriptografado = {
+                salt: paraBase64(salt),
+                iv: paraBase64(iv),
+                conteudo: paraBase64(new Uint8Array(conteudoCriptografado))
+            };
+
+            document.getElementById("encrypted-output").value =
+                JSON.stringify(cofreCriptografado, null, 2);
+
+            document.getElementById("vault-encrypted").hidden = false;
+            formularioCofre.reset();
+
+            document.getElementById("vault-decrypted").hidden = true;
+            document.getElementById("decrypt-password").value = "";
+
+            mostrarMensagemCofre(
+                "Dados criptografados com sucesso! Agora digite sua senha acima para desbloquear.",
+                "success"
+            );
+        } catch (erro) {
+            console.error("Erro na criptografia:", erro);
+            mostrarMensagemCofre(
+                "Não foi possível criptografar os dados. Tente novamente.",
+                "error"
+            );
+        } finally {
+            botao.disabled = false;
+            botao.textContent = "🔒 Criptografar dados";
+        }
+    });
+}
 
 // 4.2 DESCRIPTOGRAFAR DADOS
 
 const botaoDescriptografar = document.getElementById("decrypt-button");
 
-botaoDescriptografar.addEventListener("click", async function () {
-    if (!cofreCriptografado) {
-        mostrarMensagemCofre(
-            "Não existe nenhum conteúdo criptografado nesta sessão.",
-            "error"
-        );
-        return;
-    }
+if (botaoDescriptografar) {
+    botaoDescriptografar.addEventListener("click", async function () {
+        if (!cofreCriptografado) {
+            mostrarMensagemCofre(
+                "Não existe nenhum conteúdo criptografado nesta sessão.",
+                "error"
+            );
+            return;
+        }
 
-    const senha = document.getElementById("decrypt-password").value;
+        const senha = document.getElementById("decrypt-password").value;
 
-    if (!senha) {
-        mostrarMensagemCofre(
-            "Digite a senha para continuar.",
-            "error"
-        );
-        return;
-    }
+        if (!senha) {
+            mostrarMensagemCofre(
+                "Digite a senha para continuar.",
+                "error"
+            );
+            return;
+        }
 
-    botaoDescriptografar.disabled = true;
-    botaoDescriptografar.textContent = "Verificando...";
+        botaoDescriptografar.disabled = true;
+        botaoDescriptografar.textContent = "Verificando...";
 
-    try {
-        const salt = deBase64(cofreCriptografado.salt);
-        const iv = deBase64(cofreCriptografado.iv);
-        const chave = await derivarChave(senha, salt);
-        const conteudo = deBase64(cofreCriptografado.conteudo);
+        try {
+            const salt = deBase64(cofreCriptografado.salt);
+            const iv = deBase64(cofreCriptografado.iv);
+            const chave = await derivarChave(senha, salt);
+            const conteudo = deBase64(cofreCriptografado.conteudo);
 
-        const resultado = await crypto.subtle.decrypt(
-            {
-                name: "AES-GCM",
-                iv: iv
-            },
-            chave,
-            conteudo
-        );
+            const resultado = await crypto.subtle.decrypt(
+                {
+                    name: "AES-GCM",
+                    iv: iv
+                },
+                chave,
+                conteudo
+            );
 
-        const decodificador = new TextDecoder();
-        const textoOriginal = decodificador.decode(resultado);
-        const dados = JSON.parse(textoOriginal);
+            const decodificador = new TextDecoder();
+            const textoOriginal = decodificador.decode(resultado);
+            const dados = JSON.parse(textoOriginal);
 
-        const tabelaCorpo = document.getElementById("decrypted-content");
-        tabelaCorpo.replaceChildren();
+            const tabelaCorpo = document.getElementById("decrypted-content");
+            tabelaCorpo.replaceChildren();
 
-        const campos = [
-            ["Nome", dados.nome],
-            ["Tipo sanguíneo", dados.tipoSanguineo],
-            ["Alergias", dados.alergias],
-            ["Medicamentos", dados.medicamentos],
-            ["Contato de emergência", dados.contatoEmergencia]
-        ];
+            const campos = [
+                ["Nome", dados.nome],
+                ["Tipo sanguíneo", dados.tipoSanguineo],
+                ["Alergias", dados.alergias],
+                ["Medicamentos", dados.medicamentos],
+                ["Contato de emergência", dados.contatoEmergencia]
+            ];
 
-        campos.forEach(function (campo) {
-            const linha = document.createElement("tr");
+            campos.forEach(function (campo) {
+                const linha = document.createElement("tr");
 
-            const celulaRotulo = document.createElement("td");
-            const negrito = document.createElement("strong");
-            negrito.textContent = campo[0];
-            celulaRotulo.appendChild(negrito);
+                const celulaRotulo = document.createElement("td");
+                const negrito = document.createElement("strong");
+                negrito.textContent = campo[0];
+                celulaRotulo.appendChild(negrito);
 
-            const celulaValor = document.createElement("td");
-            celulaValor.textContent = campo[1];
+                const celulaValor = document.createElement("td");
+                celulaValor.textContent = campo[1];
 
-            linha.appendChild(celulaRotulo);
-            linha.appendChild(celulaValor);
-            tabelaCorpo.appendChild(linha);
-        });
+                linha.appendChild(celulaRotulo);
+                linha.appendChild(celulaValor);
+                tabelaCorpo.appendChild(linha);
+            });
 
-        document.getElementById("vault-decrypted").hidden = false;
+            document.getElementById("vault-decrypted").hidden = false;
 
-        mostrarMensagemCofre(
-            "Senha correta! Os dados foram recuperados.",
-            "success"
-        );
-    } catch (erro) {
-        mostrarMensagemCofre(
-            "Senha incorreta! Não foi possível abrir os dados.",
-            "error"
-        );
-        document.getElementById("vault-decrypted").hidden = true;
-    } finally {
-        botaoDescriptografar.disabled = false;
-        botaoDescriptografar.textContent = "🔓 Descriptografar";
-    }
-});
+            mostrarMensagemCofre(
+                "Senha correta! Os dados foram recuperados.",
+                "success"
+            );
+        } catch (erro) {
+            mostrarMensagemCofre(
+                "Senha incorreta! Não foi possível abrir os dados.",
+                "error"
+            );
+            document.getElementById("vault-decrypted").hidden = true;
+        } finally {
+            botaoDescriptografar.disabled = false;
+            botaoDescriptografar.textContent = "🔓 Descriptografar";
+        }
+    });
+}
 
 // 4.3 COPIAR E LIMPAR COFRE
 
-document.getElementById("copy-encrypted-btn").addEventListener("click", async function () {
-    const texto = document.getElementById("encrypted-output").value;
-    if (!texto) return;
+const botaoCopiar = document.getElementById("copy-encrypted-btn");
+if (botaoCopiar) {
+    botaoCopiar.addEventListener("click", async function () {
+        const texto = document.getElementById("encrypted-output").value;
+        if (!texto) return;
 
-    try {
-        await navigator.clipboard.writeText(texto);
-        mostrarMensagemCofre("Código criptografado copiado para a área de transferência!", "info");
-    } catch (e) {
-        mostrarMensagemCofre("Selecione o texto na caixa e copie manualmente.", "info");
-    }
-});
+        try {
+            await navigator.clipboard.writeText(texto);
+            mostrarMensagemCofre("Código criptografado copiado para a área de transferência!", "info");
+        } catch (e) {
+            mostrarMensagemCofre("Selecione o texto na caixa e copie manualmente.", "info");
+        }
+    });
+}
 
 function apagarDadosTemporarios() {
     cofreCriptografado = null;
-    formularioCofre.reset();
+    if (formularioCofre) formularioCofre.reset();
 
-    document.getElementById("encrypted-output").value = "";
-    document.getElementById("decrypt-password").value = "";
+    const encryptedOut = document.getElementById("encrypted-output");
+    const decryptPass = document.getElementById("decrypt-password");
+    const vaultEnc = document.getElementById("vault-encrypted");
+    const vaultDec = document.getElementById("vault-decrypted");
+    const decContent = document.getElementById("decrypted-content");
+    const vaultMsg = document.getElementById("vault-message");
 
-    document.getElementById("vault-encrypted").hidden = true;
-    document.getElementById("vault-decrypted").hidden = true;
-
-    document.getElementById("decrypted-content").replaceChildren();
-    document.getElementById("vault-message").textContent = "";
+    if (encryptedOut) encryptedOut.value = "";
+    if (decryptPass) decryptPass.value = "";
+    if (vaultEnc) vaultEnc.hidden = true;
+    if (vaultDec) vaultDec.hidden = true;
+    if (decContent) decContent.replaceChildren();
+    if (vaultMsg) vaultMsg.textContent = "";
 }
 
-document.getElementById("reset-vault-btn").addEventListener("click", function () {
-    apagarDadosTemporarios();
-    mostrarMensagemCofre("Cofre limpo com sucesso.", "info");
-});
+const botaoResetCofre = document.getElementById("reset-vault-btn");
+if (botaoResetCofre) {
+    botaoResetCofre.addEventListener("click", function () {
+        apagarDadosTemporarios();
+        mostrarMensagemCofre("Cofre limpo com sucesso.", "info");
+    });
+}
 
 window.addEventListener("pagehide", apagarDadosTemporarios);
 
@@ -419,7 +435,6 @@ const alimentos = {
     }
 };
 
-// Lista de itens adicionados na tabela interativa (inicia com um exemplo)
 let listaNutricional = [
     {
         id: 1,
@@ -427,10 +442,6 @@ let listaNutricional = [
         quantidade: 500
     }
 ];
-
-const formularioNutricao = document.getElementById("nutrition-form");
-const seletorAlimento = document.getElementById("food-select");
-const campoGramas = document.getElementById("food-grams");
 
 function formatarNumero(numero) {
     return numero.toLocaleString("pt-BR", {
@@ -440,9 +451,14 @@ function formatarNumero(numero) {
 }
 
 function atualizarPreviaNutricional() {
-    const alimento = alimentos[seletorAlimento.value];
-    const quantidade = Number(campoGramas.value);
+    const seletor = document.getElementById("food-select");
+    const campoGramas = document.getElementById("food-grams");
     const previa = document.getElementById("nutrition-preview");
+
+    if (!seletor || !campoGramas || !previa) return;
+
+    const alimento = alimentos[seletor.value];
+    const quantidade = Number(campoGramas.value);
 
     if (!alimento || !Number.isFinite(quantidade) || quantidade <= 0) {
         previa.textContent = "Informe uma quantidade válida";
@@ -457,6 +473,8 @@ function atualizarPreviaNutricional() {
 
 function renderizarTabelaNutricional() {
     const corpoTabela = document.getElementById("nutrition-table-body");
+    if (!corpoTabela) return;
+
     corpoTabela.replaceChildren();
 
     let totalCalorias = 0;
@@ -544,22 +562,31 @@ function removerItemNutricional(id) {
     renderizarTabelaNutricional();
 }
 
-formularioNutricao.addEventListener("submit", function (evento) {
-    evento.preventDefault();
+function adicionarItemNutricional(evento) {
+    if (evento) evento.preventDefault();
 
-    const chave = seletorAlimento.value;
-    const quantidade = Number(campoGramas.value);
+    const seletor = document.getElementById("food-select");
+    const campoGramas = document.getElementById("food-grams");
     const mensagem = document.getElementById("nutrition-feedback");
 
+    if (!seletor || !campoGramas) return;
+
+    const chave = seletor.value;
+    const quantidade = Number(campoGramas.value);
+
     if (!alimentos[chave]) {
-        mensagem.textContent = "Selecione um alimento válido.";
-        mensagem.className = "status-message error";
+        if (mensagem) {
+            mensagem.textContent = "Selecione um alimento válido.";
+            mensagem.className = "status-message error";
+        }
         return;
     }
 
     if (!Number.isFinite(quantidade) || quantidade <= 0 || quantidade > 5000) {
-        mensagem.textContent = "Informe uma quantidade entre 1 e 5000 gramas.";
-        mensagem.className = "status-message error";
+        if (mensagem) {
+            mensagem.textContent = "Informe uma quantidade entre 1 e 5000 gramas.";
+            mensagem.className = "status-message error";
+        }
         return;
     }
 
@@ -571,21 +598,40 @@ formularioNutricao.addEventListener("submit", function (evento) {
 
     renderizarTabelaNutricional();
 
-    mensagem.textContent = alimentos[chave].nome + " (" + formatarNumero(quantidade) + " g) adicionado à tabela!";
-    mensagem.className = "status-message success";
-});
+    if (mensagem) {
+        mensagem.textContent = alimentos[chave].nome + " (" + formatarNumero(quantidade) + " g) adicionado à tabela!";
+        mensagem.className = "status-message success";
+    }
+}
 
-document.getElementById("clear-nutrition-btn").addEventListener("click", function () {
-    listaNutricional = [];
-    renderizarTabelaNutricional();
+const formularioNutricao = document.getElementById("nutrition-form");
+if (formularioNutricao) {
+    formularioNutricao.addEventListener("submit", adicionarItemNutricional);
+}
 
-    const mensagem = document.getElementById("nutrition-feedback");
-    mensagem.textContent = "Tabela limpa.";
-    mensagem.className = "status-message info";
-});
+const botaoLimparNutricao = document.getElementById("clear-nutrition-btn");
+if (botaoLimparNutricao) {
+    botaoLimparNutricao.addEventListener("click", function () {
+        listaNutricional = [];
+        renderizarTabelaNutricional();
 
-seletorAlimento.addEventListener("change", atualizarPreviaNutricional);
-campoGramas.addEventListener("input", atualizarPreviaNutricional);
+        const mensagem = document.getElementById("nutrition-feedback");
+        if (mensagem) {
+            mensagem.textContent = "Tabela limpa.";
+            mensagem.className = "status-message info";
+        }
+    });
+}
+
+const seletorAlimento = document.getElementById("food-select");
+const campoGramas = document.getElementById("food-grams");
+
+if (seletorAlimento) {
+    seletorAlimento.addEventListener("change", atualizarPreviaNutricional);
+}
+if (campoGramas) {
+    campoGramas.addEventListener("input", atualizarPreviaNutricional);
+}
 
 
 // ==========================================
@@ -608,9 +654,7 @@ const medicoes = [
 
 function criarGrafico() {
     const grafico = document.getElementById("sound-chart");
-    if (!grafico) {
-        return;
-    }
+    if (!grafico) return;
 
     grafico.innerHTML = "";
 
