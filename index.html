@@ -8,13 +8,11 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
-
 <body>
 
 <header>
     <div class="container">
         <a href="#inicio" class="logo">✦ Projeto Integrador</a>
-
         <nav id="menu-principal">
             <button class="nav-tab active" data-page="inicio">Início</button>
             <button class="nav-tab" data-page="programacao">Programação</button>
@@ -26,911 +24,488 @@
 
 <main>
 
-    <!-- PÁGINA INICIAL -->
-    <section class="page active" id="inicio">
-
-        <div class="hero">
-            <div class="container">
-                <span class="eyebrow">PROJETO INTEGRADOR</span>
-                <h1>Tecnologia que aproxima, inclui e transforma.</h1>
-
-                <p>
-                    Uma investigação sobre como a programação, a robótica
-                    e a ciência podem contribuir para a comunicação,
-                    a segurança, a acessibilidade e a qualidade de vida.
-                </p>
-
-                <button class="btn" data-go="programacao">
-                    Conhecer os trabalhos →
-                </button>
-            </div>
+<!-- INÍCIO -->
+<section class="page active" id="inicio">
+    <div class="hero">
+        <div class="container">
+            <span class="eyebrow">PROJETO INTEGRADOR</span>
+            <h1>Tecnologia que aproxima, inclui e transforma.</h1>
+            <p>Uma investigação sobre como a programação, a robótica e a ciência podem contribuir para a comunicação, a segurança, a acessibilidade e a qualidade de vida.</p>
+            <button class="btn" data-go="programacao">Conhecer os trabalhos →</button>
         </div>
+    </div>
 
-        <section class="container">
-            <h2>Conheça as disciplinas</h2>
-
-            <div class="cards">
-                <article class="card">
-                    <h3>⌨ Programação</h3>
-                    <p>
-                        Desenvolvimento de programas para organizar
-                        informações, facilitar a leitura e realizar cálculos.
-                    </p>
-                    <button data-go="programacao">Explorar →</button>
-                </article>
-
-                <article class="card">
-                    <h3>▦ Robótica</h3>
-                    <p>
-                        Simulações com componentes eletrônicos que
-                        apresentam diferentes formas de transmitir informações.
-                    </p>
-                    <button data-go="robotica">Explorar →</button>
-                </article>
-
-                <article class="card">
-                    <h3>∿ Física e TecnoCiência</h3>
-                    <p>
-                        Investigação dos níveis sonoros na escola e reflexão
-                        sobre conforto acústico e inclusão.
-                    </p>
-                    <button data-go="tecnociencia">Explorar →</button>
-                </article>
-            </div>
-        </section>
-
-        <section class="container destaque">
-            <h2>Questão norteadora</h2>
-            <p>
-                Como a ciência, a tecnologia e as ferramentas de
-                Inteligência Artificial podem contribuir para a melhoria
-                da qualidade de vida das pessoas?
-            </p>
-        </section>
-
-    </section>
-
-
-    <!-- ABA DE PROGRAMAÇÃO -->
-    <section class="page" id="programacao">
-
-        <div class="banner">
-            <span>DISCIPLINA 01</span>
-            <h1>Programação</h1>
-            <p>
-                O código como ferramenta para organizar, proteger
-                e tornar informações mais acessíveis.
-            </p>
-        </div>
-
-        <div class="container conteudo">
-
-            <h2>Três aplicações da programação</h2>
-            <p>
-                As atividades exploram diferentes possibilidades do
-                pensamento computacional: armazenar dados, adaptar
-                textos e processar informações numéricas.
-            </p>
-
-            <!-- ATIVIDADE 1 -->
-            <article class="content-section">
-                <span class="etiqueta">ATIVIDADE 1</span>
-                <h2>Cofre Digital de Saúde e Emergência Médica</h2>
-
-                <h3>Objetivo</h3>
-                <p>
-                    Demonstrar como informações importantes para uma
-                    situação de emergência podem ser organizadas em
-                    um arquivo protegido por senha.
-                </p>
-
-                <h3>Funcionamento</h3>
-                <p>
-                    O programa solicita informações, como nome, tipo
-                    sanguíneo, alergias, medicamentos e contatos de
-                    emergência. Em seguida, solicita a criação e a
-                    confirmação de uma senha.
-                </p>
-
-                <p>
-                    A senha é utilizada na derivação de uma chave com
-                    PBKDF2-HMAC-SHA256. Os dados são transformados
-                    por uma rotina XOR, codificados em Base64 e
-                    armazenados em um arquivo.
-                </p>
-
-                <h3>Bibliotecas utilizadas</h3>
-                <ul>
-                    <li><strong>getpass:</strong> entrada de senha.</li>
-                    <li><strong>json:</strong> organização dos dados.</li>
-                    <li><strong>os:</strong> operações com arquivos e geração de salt.</li>
-                    <li><strong>base64:</strong> representação textual dos dados.</li>
-                    <li><strong>hashlib:</strong> funções de hash e derivação de chave.</li>
-                    <li><strong>hmac:</strong> verificação de integridade.</li>
-                </ul>
-
-                <div class="aviso">
-                    <strong>Limitação:</strong>
-                    esta é uma demonstração educacional. A rotina XOR
-                    utilizada não representa uma solução profissional
-                    de criptografia. Não utilize informações médicas
-                    ou pessoais reais.
-                </div>
-
-                <h3>Código Python</h3>
-                <p>
-                    O código completo do protótipo pode ser apresentado
-                    nesta seção. A versão reconstruída deve ser conferida
-                    com o arquivo original do Colab antes da entrega.
-                </p>
-
-                <h3>Resultado do teste</h3>
-                <p>
-                    A tentativa com senha incorreta foi rejeitada.
-                    Com a senha correta, o programa apresentou as
-                    informações cadastradas.
-                </p>
+    <section class="container">
+        <h2>Conheça as disciplinas</h2>
+        <div class="cards">
+            <article class="card">
+                <h3>⌨ Programação</h3>
+                <p>Desenvolvimento de programas para organizar informações, facilitar a leitura e realizar cálculos.</p>
+                <button data-go="programacao">Explorar →</button>
             </article>
-
-
-            <!-- ATIVIDADE 2 -->
-            <article class="content-section">
-                <span class="etiqueta">ATIVIDADE 2</span>
-                <h2>Inteligência Artificial e Leitura Facilitada</h2>
-
-                <h3>Objetivo</h3>
-                <p>
-                    Investigar como a Inteligência Artificial pode
-                    transformar textos científicos em explicações
-                    mais simples e acessíveis.
-                </p>
-
-                <h3>Texto original</h3>
-                <blockquote>
-                    A fotossíntese é um processo bioquímico realizado
-                    pelos organismos autotróficos, no qual a energia
-                    luminosa é convertida em energia química, permitindo
-                    a produção de compostos orgânicos a partir de água
-                    e dióxido de carbono.
-                </blockquote>
-
-                <div class="card">
-                    <h3>Prompt simples</h3>
-                    <p>
-                        Explique esse texto de uma maneira mais simples
-                        e fácil de entender.
-                    </p>
-
-                    <h3>Resposta</h3>
-                    <p>
-                        A fotossíntese é o processo pelo qual as plantas
-                        usam a luz do Sol, a água e o gás carbônico
-                        para produzir seu próprio alimento.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>Prompt detalhado</h3>
-                    <p>
-                        Reescreva o texto utilizando palavras simples
-                        e frases curtas. Explique os termos científicos
-                        de maneira fácil, mantenha as informações
-                        principais do texto original e não acrescente
-                        informações que não estejam presentes nele.
-                    </p>
-
-                    <h3>Resposta</h3>
-                    <p>
-                        A fotossíntese é um processo realizado pelas
-                        plantas e outros organismos. Nesse processo,
-                        eles utilizam a luz para produzir energia química.
-                        Para isso, usam água e gás carbônico e produzem
-                        substâncias orgânicas.
-                    </p>
-                </div>
-
-                <h3>Comparação</h3>
-                <p>
-                    A resposta simples é mais direta e fácil de
-                    compreender. A resposta detalhada preserva
-                    explicitamente mais elementos do texto original.
-                    As duas demonstram como a IA pode ajudar na
-                    compreensão, mas precisam de revisão humana.
-                </p>
+            <article class="card">
+                <h3>▦ Robótica</h3>
+                <p>Simulações com componentes eletrônicos que apresentam diferentes formas de transmitir informações.</p>
+                <button data-go="robotica">Explorar →</button>
             </article>
-
-
-            <!-- ATIVIDADE 3 -->
-            <article class="content-section">
-                <span class="etiqueta">ATIVIDADE 3</span>
-                <h2>Modelo Computacional de Nutrição</h2>
-
-                <h3>Objetivo</h3>
-                <p>
-                    Desenvolver uma calculadora que estima informações
-                    nutricionais de alimentos de acordo com a quantidade
-                    informada em gramas.
-                </p>
-
-                <h3>Alimentos cadastrados</h3>
-                <ul>
-                    <li>Arroz branco cozido;</li>
-                    <li>Feijão carioca cozido;</li>
-                    <li>Frango grelhado;</li>
-                    <li>Banana;</li>
-                    <li>Maçã;</li>
-                    <li>Ovo cozido;</li>
-                    <li>Batata cozida.</li>
-                </ul>
-
-                <h3>Informações calculadas</h3>
-                <p>
-                    Calorias, carboidratos, proteínas, gorduras,
-                    fibras e sódio.
-                </p>
-
-                <h3>Resultado do teste realizado</h3>
-
-                <div class="resultado">
-                    <h3>Banana — 500 gramas</h3>
-                    <p><strong>490 kcal</strong></p>
-                    <p>Carboidratos: 130 g</p>
-                    <p>Proteínas: 6,5 g</p>
-                    <p>Gorduras: 0,5 g</p>
-                    <p>Fibras: 10 g</p>
-                    <p>Sódio: 0 mg</p>
-                </div>
-
-                <div class="aviso">
-                    Os valores nutricionais são aproximados e podem
-                    variar conforme o alimento, a preparação e a fonte.
-                    O programa é didático e não substitui orientação
-                    profissional.
-                </div>
+            <article class="card">
+                <h3>∿ Física e TecnoCiência</h3>
+                <p>Investigação dos níveis sonoros na escola e reflexão sobre conforto acústico e inclusão.</p>
+                <button data-go="tecnociencia">Explorar →</button>
             </article>
-
-            <button class="btn" data-go="robotica">
-                Próxima disciplina: Robótica →
-            </button>
-
         </div>
     </section>
 
+    <section class="container destaque">
+        <h2>Questão norteadora</h2>
+        <p>Como a ciência, a tecnologia e as ferramentas de Inteligência Artificial podem contribuir para a melhoria da qualidade de vida das pessoas?</p>
+    </section>
+</section>
 
-    <!-- ABA DE ROBÓTICA -->
-    <section class="page" id="robotica">
+<!-- PROGRAMAÇÃO -->
+<section class="page" id="programacao">
+    <div class="banner">
+        <span>DISCIPLINA 01</span>
+        <h1>Programação</h1>
+        <p>O código como ferramenta para organizar, proteger e tornar informações mais acessíveis.</p>
+    </div>
 
-        <div class="banner banner-robo">
-            <span>DISCIPLINA 02</span>
-            <h1>Robótica</h1>
-            <p>
-                Acessibilidade para a melhoria da qualidade de vida.
-            </p>
-        </div>
+    <div class="container conteudo">
+        <h2>Três aplicações da programação</h2>
+        <p>As atividades exploram diferentes possibilidades do pensamento computacional: armazenar dados, adaptar textos e processar informações numéricas.</p>
 
-        <div class="container conteudo">
+        <!-- ATIVIDADE 1 -->
+        <article class="content-section">
+            <span class="etiqueta">ATIVIDADE 1</span>
+            <h2>Cofre Digital de Saúde e Emergência Médica</h2>
 
-            <h2>Comunicação por luz, som e texto</h2>
-            <p>
-                Os projetos exploram três recursos tecnológicos:
-                uma matriz de LEDs, um circuito com buzzer e LED
-                e um display LCD.
-            </p>
+            <h3>Objetivo</h3>
+            <p>Demonstrar como informações importantes para uma situação de emergência podem ser organizadas em um arquivo protegido por senha.</p>
 
-            <!-- MATRIZ DE LEDS -->
-            <article class="content-section">
-                <span class="etiqueta">PROJETO 1</span>
-                <h2>Matriz de LEDs 8×8</h2>
+            <h3>Funcionamento</h3>
+            <p>O protótipo permite cadastrar informações fictícias, criar uma senha, criptografar os dados e testar a recuperação das informações com a senha correta.</p>
 
-                <p>
-                    Uma matriz 8×8 possui 64 pontos luminosos
-                    organizados em oito linhas e oito colunas.
-                    Cada ponto pode ser ligado ou desligado.
-                </p>
+            <h3>Bibliotecas e recursos utilizados</h3>
+            <ul>
+                <li><strong>HTML:</strong> estrutura do formulário.</li>
+                <li><strong>CSS:</strong> apresentação visual.</li>
+                <li><strong>JavaScript:</strong> interação com o usuário.</li>
+                <li><strong>Web Crypto API:</strong> criptografia AES-GCM e derivação de chave PBKDF2.</li>
+            </ul>
 
-                <p>
-                    O código utiliza uma sequência binária de
-                    64 caracteres para formar uma figura.
-                    O número 1 representa um LED aceso e o
-                    número 0 representa um LED apagado.
-                </p>
+            <div class="aviso">
+                <strong>Atenção à privacidade:</strong> esta é uma demonstração escolar. Preencha somente dados fictícios. As informações não são salvas e são descartadas ao atualizar ou fechar a página.
+            </div>
 
-                <p>
-                    O projeto utiliza Arduino Uno, controlador
-                    de matriz e as bibliotecas LedControl e MatrizLed.
-                </p>
-
-                <figure>
-                    <img src="img/matriz-leds.png"
-                         alt="Simulação da matriz de LEDs 8 por 8">
-                    <figcaption>Captura real da simulação da matriz de LEDs.</figcaption>
-                </figure>
-
-                <p>
-                    O programa apresenta a frase
-                    “Como estou me sentindo” em rolagem e desenha
-                    uma figura definida pela sequência binária.
-                </p>
-
-                <h3>Aplicações</h3>
-                <p>
-                    Pode apresentar símbolos, setas, alertas e
-                    mensagens visuais curtas. Sua limitação é
-                    a baixa resolução da matriz.
-                </p>
-            </article>
-
-
-            <!-- CÓDIGO MORSE -->
-            <article class="content-section">
-                <span class="etiqueta">PROJETO 2</span>
-                <h2>Código Morse</h2>
-
-                <p>
-                    O Código Morse representa letras e números
-                    por combinações de sinais curtos, chamados
-                    pontos, e sinais longos, chamados traços.
-                </p>
-
-                <p>
-                    Exemplo: SOS é representado por
-                    <strong>··· −−− ···</strong>.
-                </p>
-
-                <div class="aviso">
-                    <strong>Importante:</strong>
-                    nosso circuito não transmite letras Morse
-                    automaticamente. Quando o botão é pressionado,
-                    o LED acende e o buzzer emite som simultaneamente.
-                    Quando o botão é solto, ambos desligam.
+            <div class="interactive-panel vault-panel">
+                <div class="panel-heading">
+                    <span class="panel-icon">🔐</span>
+                    <div>
+                        <h3>Cofre Digital Interativo</h3>
+                        <p>Simulação de proteção de informações de emergência.</p>
+                    </div>
                 </div>
 
-                <h3>Componentes</h3>
-                <ul>
-                    <li>Arduino Uno;</li>
-                    <li>Buzzer no pino 2;</li>
-                    <li>Botão no pino 3;</li>
-                    <li>LED no pino 4.</li>
-                </ul>
+                <form id="vault-form">
+                    <div class="form-grid">
+                        <label>Nome fictício
+                            <input id="health-name" type="text" maxlength="70" placeholder="Ex.: Maria Silva" required>
+                        </label>
+                        <label>Tipo sanguíneo fictício
+                            <select id="health-blood" required>
+                                <option value="">Selecione</option>
+                                <option>A+</option><option>A-</option>
+                                <option>B+</option><option>B-</option>
+                                <option>AB+</option><option>AB-</option>
+                                <option>O+</option><option>O-</option>
+                                <option>Não informado</option>
+                            </select>
+                        </label>
+                        <label>Alergias fictícias
+                            <input id="health-allergies" type="text" maxlength="150" placeholder="Ex.: Nenhuma">
+                        </label>
+                        <label>Medicamentos fictícios
+                            <input id="health-medicines" type="text" maxlength="150" placeholder="Ex.: Nenhum">
+                        </label>
+                        <label class="full-field">Contato de emergência fictício
+                            <input id="health-contact" type="text" maxlength="100" placeholder="Ex.: Ana - (00) 00000-0000">
+                        </label>
+                        <label>Crie uma senha
+                            <input id="vault-password" type="password" minlength="8" maxlength="100" autocomplete="new-password" placeholder="Mínimo de 8 caracteres" required>
+                        </label>
+                        <label>Confirme a senha
+                            <input id="vault-confirm" type="password" minlength="8" maxlength="100" autocomplete="new-password" placeholder="Digite novamente" required>
+                        </label>
+                    </div>
 
-                <figure>
-                    <img src="img/codigo-morse.png"
-                         alt="Circuito com Arduino, botão, buzzer e LED">
-                    <figcaption>Captura real do circuito simulado.</figcaption>
-                </figure>
-            </article>
+                    <button class="btn" type="submit">🔒 Criptografar dados</button>
+                </form>
 
+                <div id="vault-encrypted" class="vault-result" hidden>
+                    <h3>🔐 Dados criptografados</h3>
+                    <p>O conteúdo abaixo é uma representação criptografada dos dados cadastrados.</p>
+                    <textarea id="encrypted-output" readonly rows="5" aria-label="Dados criptografados"></textarea>
 
-            <!-- DISPLAY LCD -->
-            <article class="content-section">
-                <span class="etiqueta">PROJETO 3</span>
-                <h2>Display LCD 16×2</h2>
+                    <label for="decrypt-password">Digite a senha para tentar desbloquear:</label>
+                    <input id="decrypt-password" type="password" autocomplete="off" placeholder="Sua senha">
+                    <button class="btn btn-secondary" id="decrypt-button" type="button">Descriptografar</button>
+                </div>
 
-                <p>
-                    O display LCD 16×2 apresenta até 16 caracteres
-                    em cada uma de suas duas linhas.
-                </p>
+                <div id="vault-message" class="status-message" role="status" aria-live="polite"></div>
+                <div id="vault-decrypted" class="decrypted-result" hidden>
+                    <h3>🔓 Informações recuperadas</h3>
+                    <div id="decrypted-content"></div>
+                </div>
 
-                <p>
-                    O projeto utiliza Arduino Uno, display LCD,
-                    potenciômetro, resistor e fios de ligação.
-                </p>
+                <p class="privacy-note">🛡️ Os dados existem somente enquanto esta página estiver aberta. Não são enviados para servidores nem armazenados no navegador.</p>
+            </div>
 
-                <figure>
-                    <img src="img/display-lcd.png"
-                         alt="Simulação do Arduino com display LCD 16 por 2">
-                    <figcaption>Captura real da simulação do LCD.</figcaption>
-                </figure>
+            <h3>Resultado esperado</h3>
+            <p>Com uma senha incorreta, a tentativa de descriptografia deve falhar. Com a senha correta, as informações fictícias são recuperadas.</p>
+        </article>
 
-                <p>
-                    O programa inicia a tela com duas mensagens.
-                    Depois, recebe caracteres pela comunicação serial.
-                    O caractere % limpa a tela e posiciona o cursor
-                    na primeira linha. O caractere &gt; posiciona
-                    o cursor na segunda linha.
-                </p>
+        <!-- ATIVIDADE 2 -->
+        <article class="content-section">
+            <span class="etiqueta">ATIVIDADE 2</span>
+            <h2>Inteligência Artificial e Leitura Facilitada</h2>
 
-                <p>
-                    O LCD pode ser utilizado para apresentar
-                    orientações, avisos e informações curtas.
-                </p>
-            </article>
+            <h3>Objetivo</h3>
+            <p>Investigar como a Inteligência Artificial pode transformar textos científicos em explicações mais simples e acessíveis.</p>
 
+            <h3>Texto original</h3>
+            <blockquote>A fotossíntese é um processo bioquímico realizado pelos organismos autotróficos, no qual a energia luminosa é convertida em energia química, permitindo a produção de compostos orgânicos a partir de água e dióxido de carbono.</blockquote>
 
-            <!-- COMPARAÇÃO -->
-            <article class="content-section">
-                <h2>Comparação dos três recursos</h2>
+            <div class="card">
+                <h3>Prompt simples</h3>
+                <p>Explique esse texto de uma maneira mais simples e fácil de entender.</p>
+                <h3>Resposta</h3>
+                <p>A fotossíntese é o processo pelo qual as plantas usam a luz do Sol, a água e o gás carbônico para produzir seu próprio alimento.</p>
+            </div>
+
+            <div class="card">
+                <h3>Prompt detalhado</h3>
+                <p>Reescreva o texto utilizando palavras simples e frases curtas. Explique os termos científicos de maneira fácil, mantenha as informações principais do texto original e não acrescente informações que não estejam presentes nele.</p>
+                <h3>Resposta</h3>
+                <p>A fotossíntese é um processo realizado pelas plantas e outros organismos. Nesse processo, eles utilizam a luz para produzir energia química. Para isso, usam água e gás carbônico e produzem substâncias orgânicas.</p>
+            </div>
+
+            <h3>Comparação</h3>
+            <p>A resposta simples é mais direta e fácil de compreender. A resposta detalhada preserva explicitamente mais elementos do texto original. As duas demonstram como a IA pode ajudar na compreensão, mas precisam de revisão humana.</p>
+        </article>
+
+        <!-- ATIVIDADE 3 -->
+        <article class="content-section">
+            <span class="etiqueta">ATIVIDADE 3</span>
+            <h2>Modelo Computacional de Nutrição</h2>
+
+            <h3>Objetivo</h3>
+            <p>Desenvolver uma calculadora que estima informações nutricionais de alimentos de acordo com a quantidade informada em gramas.</p>
+
+            <h3>Alimentos cadastrados</h3>
+            <p>Arroz branco cozido, feijão carioca cozido, frango grelhado, banana, maçã, ovo cozido e batata cozida.</p>
+
+            <h3>Calculadora nutricional interativa</h3>
+            <p>Escolha um alimento e informe a quantidade em gramas. Os resultados são atualizados automaticamente.</p>
+
+            <div class="interactive-panel nutrition-panel">
+                <div class="panel-heading">
+                    <span class="panel-icon">🍎</span>
+                    <div>
+                        <h3>Calculadora Nutricional</h3>
+                        <p>Estimativa dos nutrientes conforme a quantidade selecionada.</p>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <label for="food-select">Selecione o alimento
+                        <select id="food-select">
+                            <option value="arroz">Arroz branco cozido</option>
+                            <option value="feijao">Feijão carioca cozido</option>
+                            <option value="frango">Frango grelhado</option>
+                            <option value="banana">Banana</option>
+                            <option value="maca">Maçã</option>
+                            <option value="ovo">Ovo cozido</option>
+                            <option value="batata">Batata cozida</option>
+                        </select>
+                    </label>
+                    <label for="food-grams">Quantidade em gramas
+                        <input id="food-grams" type="number" min="1" max="5000" value="100" step="1">
+                    </label>
+                </div>
+
+                <div class="nutrition-highlight">
+                    <span>Energia estimada</span>
+                    <strong id="nutrition-calories">128 kcal</strong>
+                </div>
 
                 <div class="table-wrap">
-                    <table>
+                    <table class="nutrition-table">
                         <thead>
-                            <tr>
-                                <th>Recurso</th>
-                                <th>Comunicação</th>
-                                <th>Vantagem</th>
-                                <th>Limitação</th>
-                            </tr>
+                            <tr><th>Nutriente</th><th>Quantidade estimada</th></tr>
                         </thead>
-
                         <tbody>
-                            <tr>
-                                <td>Matriz de LEDs</td>
-                                <td>Luz e símbolos</td>
-                                <td>Comunicação visual</td>
-                                <td>Baixa resolução</td>
-                            </tr>
-
-                            <tr>
-                                <td>Botão, LED e buzzer</td>
-                                <td>Luz e som</td>
-                                <td>Alerta simultâneo</td>
-                                <td>Não codifica mensagens</td>
-                            </tr>
-
-                            <tr>
-                                <td>Display LCD</td>
-                                <td>Mensagens escritas</td>
-                                <td>Informações textuais</td>
-                                <td>Não transmite áudio</td>
-                            </tr>
+                            <tr><td>Carboidratos</td><td id="nutrition-carbs">28,1 g</td></tr>
+                            <tr><td>Proteínas</td><td id="nutrition-protein">2,5 g</td></tr>
+                            <tr><td>Gorduras</td><td id="nutrition-fat">0,2 g</td></tr>
+                            <tr><td>Fibras</td><td id="nutrition-fiber">1,6 g</td></tr>
+                            <tr><td>Sódio</td><td id="nutrition-sodium">1 mg</td></tr>
                         </tbody>
                     </table>
                 </div>
-            </article>
-
-
-            <article class="content-section">
-                <h2>Situação prática: unidade de saúde</h2>
-
-                <p>
-                    Em uma unidade de saúde, a matriz de LEDs poderia
-                    apresentar sinais visuais, o circuito com buzzer
-                    e LED poderia funcionar como alerta, e o LCD
-                    poderia exibir orientações como sala de atendimento
-                    ou informações de direcionamento.
-                </p>
-
-                <p>
-                    A combinação dos recursos poderia ampliar as
-                    possibilidades de comunicação, desde que
-                    fossem considerados diferentes tipos de necessidade.
-                </p>
-            </article>
-
-
-            <article class="content-section">
-                <h2>Uso crítico da Inteligência Artificial</h2>
-
-                <p>
-                    O ChatGPT foi utilizado como apoio para organizar
-                    explicações e estruturar o trabalho.
-                </p>
-
-                <p>
-                    Os prompts apresentados como exemplos devem ser
-                    identificados como sugestões, caso não tenham
-                    sido utilizados literalmente.
-                </p>
-
-                <p>
-                    As respostas da IA precisam ser verificadas,
-                    pois podem conter erros ou atribuir funcionalidades
-                    que os circuitos não possuem.
-                </p>
-            </article>
-
-
-            <article class="content-section">
-                <h2>Proposta de melhoria</h2>
-
-                <p>
-                    Uma possibilidade seria complementar o display LCD
-                    com alertas sonoros. A proposta poderia beneficiar
-                    pessoas que não percebem facilmente as mensagens
-                    visuais, oferecendo outra forma de aviso.
-                </p>
-
-                <p>
-                    Essa melhoria é uma proposta conceitual e não
-                    representa uma função já construída ou testada.
-                </p>
-            </article>
-
-
-            <article class="content-section">
-                <h2>Conclusão e referências</h2>
-
-                <p>
-                    Os projetos demonstram como a robótica pode
-                    oferecer diferentes formas de comunicação.
-                    A combinação de recursos visuais, sonoros e
-                    escritos pode contribuir para a acessibilidade
-                    e a qualidade de vida.
-                </p>
-
-                <ul>
-                    <li>
-                        <a href="https://docs.arduino.cc/"
-                           target="_blank" rel="noopener">
-                            Documentação oficial Arduino
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.itu.int/"
-                           target="_blank" rel="noopener">
-                            União Internacional de Telecomunicações
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.w3.org/TR/WCAG22/"
-                           target="_blank" rel="noopener">
-                            W3C — Diretrizes de Acessibilidade WCAG 2.2
-                        </a>
-                    </li>
-                </ul>
-            </article>
-
-            <button class="btn" data-go="tecnociencia">
-                Próxima disciplina: Física e TecnoCiência →
-            </button>
-
-        </div>
-    </section>
-
-
-    <!-- ABA DE FÍSICA E TECNOCIÊNCIA -->
-    <section class="page" id="tecnociencia">
-
-        <div class="banner banner-ciencia">
-            <span>DISCIPLINA 03</span>
-            <h1>Física e TecnoCiência</h1>
-            <p>Ciência do Som — Audição, Acessibilidade e Qualidade de Vida.</p>
-        </div>
-
-        <div class="container conteudo">
-
-            <article class="content-section">
-                <h2>Introdução</h2>
-
-                <p>
-                    A investigação teve como objetivo observar os
-                    níveis sonoros em diferentes ambientes escolares,
-                    relacionando os resultados à saúde auditiva,
-                    ao conforto e à acessibilidade.
-                </p>
-            </article>
-
-
-            <article class="content-section">
-                <h2>Conceitos físicos</h2>
-
-                <h3>O que é o som?</h3>
-                <p>
-                    O som é uma onda mecânica produzida por vibrações.
-                    Ele precisa de um meio material, como ar, água
-                    ou sólidos, para se propagar.
-                </p>
-
-                <h3>Frequência</h3>
-                <p>
-                    A frequência representa o número de vibrações
-                    por segundo e é medida em hertz (Hz).
-                    Sons graves possuem frequências menores,
-                    enquanto sons agudos possuem frequências maiores.
-                </p>
-
-                <h3>Intensidade sonora</h3>
-                <p>
-                    A intensidade está relacionada à energia
-                    transportada pela onda sonora. Na percepção
-                    cotidiana, está associada à sensação de som
-                    fraco ou forte.
-                </p>
-
-                <h3>Decibéis</h3>
-                <p>
-                    O nível sonoro é frequentemente expresso
-                    em decibéis (dB), uma escala logarítmica.
-                </p>
-            </article>
-
-
-            <article class="content-section">
-                <h2>Audição humana e saúde auditiva</h2>
-
-                <p>
-                    A faixa de frequência audível por um ser humano
-                    saudável é aproximadamente de 20 Hz a 20.000 Hz,
-                    podendo variar conforme a idade e as condições
-                    individuais.
-                </p>
-
-                <p>
-                    A exposição prolongada a sons intensos pode
-                    prejudicar a audição. O ruído também pode
-                    atrapalhar a concentração, a comunicação
-                    e o bem-estar.
-                </p>
-
-                <p>
-                    É importante evitar exposição desnecessária
-                    a sons muito altos e respeitar momentos
-                    de descanso auditivo.
-                </p>
-            </article>
-
-
-            <!-- MEDIÇÕES -->
-            <article class="content-section">
-                <h2>Investigação dos ambientes escolares</h2>
-
-                <p>
-                    O grupo utilizou um aplicativo de decibelímetro
-                    em celular para registrar as médias indicadas
-                    nos diferentes ambientes.
-                </p>
-
-                <div class="table-wrap">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Local</th>
-                                <th>Horário</th>
-                                <th>Média</th>
-                                <th>Condições observadas</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td>Pátio da escola</td>
-                                <td>07h45</td>
-                                <td>81 dB</td>
-                                <td>Havia pessoas conversando.</td>
-                            </tr>
-
-                            <tr>
-                                <td>Quadra coberta</td>
-                                <td>07h52</td>
-                                <td>75 dB</td>
-                                <td>Havia uma turma na arquibancada.</td>
-                            </tr>
-
-                            <tr>
-                                <td>Sala de aula</td>
-                                <td>07h58</td>
-                                <td>51 dB</td>
-                                <td>Estava vazia, apenas com os integrantes do grupo.</td>
-                            </tr>
-
-                            <tr>
-                                <td>Corredor das salas</td>
-                                <td>08h04</td>
-                                <td>71 dB</td>
-                                <td>As portas das salas estavam abertas e havia aulas acontecendo.</td>
-                            </tr>
-
-                            <tr>
-                                <td>Biblioteca</td>
-                                <td>08h08</td>
-                                <td>50 dB</td>
-                                <td>Havia pessoas, mas estavam quietas.</td>
-                            </tr>
-
-                            <tr>
-                                <td>Refeitório</td>
-                                <td>08h17</td>
-                                <td>50 dB</td>
-                                <td>Estava vazio, sem pessoas.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <p>
-                    Os valores representam médias (AVG) indicadas
-                    pelo aplicativo.
-                </p>
-            </article>
-
-
-            <!-- GRÁFICO -->
-            <article class="content-section">
-                <h2>Gráfico dos níveis sonoros</h2>
-
-                <div id="sound-chart" class="bar-chart"
-                     role="img"
-                     aria-label="Gráfico das médias sonoras dos seis ambientes escolares.">
-                </div>
-
-                <p>
-                    Os valores apresentados no gráfico correspondem
-                    exatamente às medições registradas na tabela.
-                </p>
-            </article>
-
-
-            <!-- ANÁLISE -->
-            <article class="content-section">
-                <h2>Análise dos resultados</h2>
-
-                <h3>9. Qual local apresentou o maior valor? E o menor?</h3>
-                <p>
-                    O pátio apresentou o maior valor, com 81 dB.
-                    A biblioteca e o refeitório apresentaram os
-                    menores valores, ambos com 50 dB.
-                </p>
-
-                <h3>10. Que situações podem explicar as diferenças?</h3>
-                <p>
-                    A movimentação e as atividades ajudam a explicar
-                    as diferenças. No pátio havia pessoas conversando;
-                    na quadra havia uma turma na arquibancada;
-                    no corredor, portas abertas e aulas acontecendo.
-                </p>
-
-                <h3>11. Os valores mudaram conforme o horário?</h3>
-                <p>
-                    Os registros foram feitos em horários diferentes
-                    e em locais com movimentações distintas. Como
-                    não foram realizadas medições repetidas nos
-                    mesmos locais, não é possível atribuir as
-                    diferenças somente ao horário.
-                </p>
-
-                <h3>12. Quais são as limitações?</h3>
-                <p>
-                    O microfone do celular, a posição do aparelho,
-                    a distância da fonte sonora e o aplicativo
-                    podem afetar a leitura. O aplicativo fornece
-                    estimativas e não é um instrumento profissional
-                    calibrado.
-                </p>
-
-                <h3>13. Que mudanças poderiam melhorar os ambientes?</h3>
-                <p>
-                    Materiais de absorção sonora, manutenção
-                    de equipamentos, organização dos espaços,
-                    sinalização visual e criação de um espaço
-                    tranquilo podem contribuir para o conforto.
-                </p>
-            </article>
-
-
-            <article class="content-section">
-                <h2>Acessibilidade e inclusão</h2>
-
-                <p>
-                    O excesso de ruído pode dificultar a comunicação
-                    e a compreensão de instruções. Algumas pessoas
-                    apresentam hipersensibilidade auditiva e podem
-                    sentir desconforto em ambientes com muitos
-                    sons simultâneos.
-                </p>
-
-                <p>
-                    Isso pode ocorrer em algumas pessoas autistas,
-                    mas as experiências e necessidades variam
-                    de pessoa para pessoa. Por isso, é importante
-                    oferecer ambientes acolhedores e alternativas
-                    de participação.
-                </p>
-            </article>
-
-
-            <article class="content-section">
-                <h2>Tecnologias e estratégias</h2>
-
-                <ul>
-                    <li>Materiais de absorção sonora;</li>
-                    <li>Manutenção de equipamentos;</li>
-                    <li>Organização dos ambientes;</li>
-                    <li>Sinalização visual;</li>
-                    <li>Espaços tranquilos.</li>
-                </ul>
-            </article>
-
-
-            <article class="content-section">
-                <h2>Propostas de melhoria</h2>
-
-                <div class="card">
-                    <h3>Proposta 1 — Melhorar o conforto acústico da quadra</h3>
-                    <p>
-                        Avaliar a instalação de materiais adequados
-                        de absorção sonora, considerando segurança
-                        e orientação técnica.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>Proposta 2 — Reduzir o ruído no corredor</h3>
-                    <p>
-                        Quando possível, manter as portas das salas
-                        fechadas e organizar a circulação de pessoas,
-                        sem prejudicar ventilação ou acessibilidade.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h3>Proposta complementar — Espaço tranquilo</h3>
-                    <p>
-                        Disponibilizar um ambiente de menor estímulo
-                        sonoro para estudantes que precisem de uma pausa.
-                    </p>
-                </div>
-            </article>
-
-
-            <article class="content-section">
-                <h2>Uso crítico da Inteligência Artificial</h2>
-
-                <p>
-                    O ChatGPT foi utilizado como apoio para organizar
-                    explicações e estruturar a apresentação do trabalho.
-                </p>
-
-                <p>
-                    Os prompts apresentados como exemplos são
-                    sugestões e não devem ser considerados registros
-                    literais de conversas ou medições.
-                </p>
-
-                <p>
-                    As informações devem ser verificadas em fontes
-                    confiáveis. A IA pode cometer erros, simplificar
-                    demais ou apresentar informações sem contexto.
-                </p>
-            </article>
-
-
-            <article class="content-section">
-                <h2>Conclusão</h2>
-
-                <p>
-                    A investigação mostra como a Física permite
-                    compreender o som e analisar os ambientes
-                    em que vivemos. A tecnologia pode ajudar
-                    a observar dados e propor melhorias, enquanto
-                    a acessibilidade exige considerar diferentes
-                    formas de perceber e participar.
-                </p>
-
-                <h3>Referências</h3>
-
-                <ul>
-                    <li>
-                        <a href="https://www.who.int/news-room/fact-sheets/detail/deafness-and-hearing-loss"
-                           target="_blank" rel="noopener">
-                            Organização Mundial da Saúde — Audição
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="https://www.nidcd.nih.gov/health/noise-induced-hearing-loss"
-                           target="_blank" rel="noopener">
-                            NIDCD — Perda auditiva induzida por ruído
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="https://www.cdc.gov/niosh/noise/"
-                           target="_blank" rel="noopener">
-                            CDC/NIOSH — Ruído
-                        </a>
-                    </li>
-                </ul>
-            </article>
-
-            <button class="btn" data-go="inicio">
-                Voltar ao início ↑
-            </button>
-
-        </div>
-    </section>
+                <p id="nutrition-feedback" class="status-message" role="status" aria-live="polite">Valores aproximados para a quantidade selecionada.</p>
+            </div>
+
+            <h3>Tabela de referência dos alimentos</h3>
+            <p>Valores aproximados por 100 gramas, utilizados como base para os cálculos do programa.</p>
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr><th>Alimento (100 g)</th><th>Calorias</th><th>Carboidratos</th><th>Proteínas</th><th>Gorduras</th><th>Fibras</th><th>Sódio</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Arroz branco cozido</td><td>128 kcal</td><td>28,1 g</td><td>2,5 g</td><td>0,2 g</td><td>1,6 g</td><td>1 mg</td></tr>
+                        <tr><td>Feijão carioca cozido</td><td>76 kcal</td><td>13,6 g</td><td>4,8 g</td><td>0,5 g</td><td>8,5 g</td><td>2 mg</td></tr>
+                        <tr><td>Frango grelhado</td><td>159 kcal</td><td>0 g</td><td>32 g</td><td>2,5 g</td><td>0 g</td><td>50 mg</td></tr>
+                        <tr><td>Banana</td><td>98 kcal</td><td>26 g</td><td>1,3 g</td><td>0,1 g</td><td>2 g</td><td>0 mg</td></tr>
+                        <tr><td>Maçã</td><td>56 kcal</td><td>15,2 g</td><td>0,3 g</td><td>0 g</td><td>1,3 g</td><td>0 mg</td></tr>
+                        <tr><td>Ovo cozido</td><td>146 kcal</td><td>0,6 g</td><td>13,3 g</td><td>9,5 g</td><td>0 g</td><td>146 mg</td></tr>
+                        <tr><td>Batata cozida</td><td>52 kcal</td><td>11,9 g</td><td>1,2 g</td><td>0 g</td><td>1,3 g</td><td>2 mg</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3>Exemplo de resultado</h3>
+            <div class="resultado">
+                <h3>Banana — 500 gramas</h3>
+                <p><strong>490 kcal</strong></p>
+                <p>Carboidratos: 130 g</p>
+                <p>Proteínas: 6,5 g</p>
+                <p>Gorduras: 0,5 g</p>
+                <p>Fibras: 10 g</p>
+                <p>Sódio: 0 mg</p>
+            </div>
+
+            <div class="aviso">Os valores nutricionais são aproximados e podem variar conforme o alimento, a preparação e a fonte. O programa é didático e não substitui orientação profissional.</div>
+        </article>
+
+        <button class="btn" data-go="robotica">Próxima disciplina: Robótica →</button>
+    </div>
+</section>
+
+<!-- ROBÓTICA -->
+<section class="page" id="robotica">
+    <div class="banner banner-robo">
+        <span>DISCIPLINA 02</span>
+        <h1>Robótica</h1>
+        <p>Acessibilidade para a melhoria da qualidade de vida.</p>
+    </div>
+
+    <div class="container conteudo">
+        <h2>Comunicação por luz, som e texto</h2>
+        <p>Os projetos exploram três recursos tecnológicos: uma matriz de LEDs, um circuito com buzzer e LED e um display LCD.</p>
+
+        <article class="content-section">
+            <span class="etiqueta">PROJETO 1</span>
+            <h2>Matriz de LEDs 8×8</h2>
+            <p>Uma matriz 8×8 possui 64 pontos luminosos organizados em oito linhas e oito colunas. Cada ponto pode ser ligado ou desligado.</p>
+            <p>O código utiliza uma sequência binária de 64 caracteres para formar uma figura. O número 1 representa um LED aceso e o número 0 representa um LED apagado.</p>
+            <p>O projeto utiliza Arduino Uno, controlador de matriz e as bibliotecas LedControl e MatrizLed.</p>
+            <figure>
+                <img src="img/matriz-leds.png" alt="Simulação da matriz de LEDs 8 por 8">
+                <figcaption>Captura real da simulação da matriz de LEDs.</figcaption>
+            </figure>
+            <p>O programa apresenta a frase “Como estou me sentindo” em rolagem e desenha uma figura definida pela sequência binária.</p>
+            <h3>Aplicações</h3>
+            <p>Pode apresentar símbolos, setas, alertas e mensagens visuais curtas. Sua limitação é a baixa resolução da matriz.</p>
+        </article>
+
+        <article class="content-section">
+            <span class="etiqueta">PROJETO 2</span>
+            <h2>Código Morse</h2>
+            <p>O Código Morse representa letras e números por combinações de sinais curtos, chamados pontos, e sinais longos, chamados traços.</p>
+            <p>Exemplo: SOS é representado por <strong>··· −−− ···</strong>.</p>
+            <div class="aviso"><strong>Importante:</strong> nosso circuito não transmite letras Morse automaticamente. Quando o botão é pressionado, o LED acende e o buzzer emite som simultaneamente. Quando o botão é solto, ambos desligam.</div>
+            <h3>Componentes</h3>
+            <ul><li>Arduino Uno;</li><li>Buzzer no pino 2;</li><li>Botão no pino 3;</li><li>LED no pino 4.</li></ul>
+            <figure>
+                <img src="img/codigo-morse.png" alt="Circuito com Arduino, botão, buzzer e LED">
+                <figcaption>Captura real do circuito simulado.</figcaption>
+            </figure>
+        </article>
+
+        <article class="content-section">
+            <span class="etiqueta">PROJETO 3</span>
+            <h2>Display LCD 16×2</h2>
+            <p>O display LCD 16×2 apresenta até 16 caracteres em cada uma de suas duas linhas.</p>
+            <p>O projeto utiliza Arduino Uno, display LCD, potenciômetro, resistor e fios de ligação.</p>
+            <figure>
+                <img src="img/display-lcd.png" alt="Simulação do Arduino com display LCD 16 por 2">
+                <figcaption>Captura real da simulação do LCD.</figcaption>
+            </figure>
+            <p>O programa inicia a tela com duas mensagens. Depois, recebe caracteres pela comunicação serial. O caractere % limpa a tela e posiciona o cursor na primeira linha. O caractere &gt; posiciona o cursor na segunda linha.</p>
+            <p>O LCD pode ser utilizado para apresentar orientações, avisos e informações curtas.</p>
+        </article>
+
+        <article class="content-section">
+            <h2>Comparação dos três recursos</h2>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Recurso</th><th>Comunicação</th><th>Vantagem</th><th>Limitação</th></tr></thead>
+                    <tbody>
+                        <tr><td>Matriz de LEDs</td><td>Luz e símbolos</td><td>Comunicação visual</td><td>Baixa resolução</td></tr>
+                        <tr><td>Botão, LED e buzzer</td><td>Luz e som</td><td>Alerta simultâneo</td><td>Não codifica mensagens</td></tr>
+                        <tr><td>Display LCD</td><td>Mensagens escritas</td><td>Informações textuais</td><td>Não transmite áudio</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </article>
+
+        <article class="content-section">
+            <h2>Situação prática: unidade de saúde</h2>
+            <p>Em uma unidade de saúde, a matriz de LEDs poderia apresentar sinais visuais, o circuito com buzzer e LED poderia funcionar como alerta, e o LCD poderia exibir orientações como sala de atendimento ou informações de direcionamento.</p>
+            <p>A combinação dos recursos poderia ampliar as possibilidades de comunicação, desde que fossem considerados diferentes tipos de necessidade.</p>
+        </article>
+
+        <article class="content-section">
+            <h2>Uso crítico da Inteligência Artificial</h2>
+            <p>O ChatGPT foi utilizado como apoio para organizar explicações e estruturar o trabalho.</p>
+            <p>Os prompts apresentados como exemplos devem ser identificados como sugestões, caso não tenham sido utilizados literalmente.</p>
+            <p>As respostas da IA precisam ser verificadas, pois podem conter erros ou atribuir funcionalidades que os circuitos não possuem.</p>
+        </article>
+
+        <article class="content-section">
+            <h2>Proposta de melhoria</h2>
+            <p>Uma possibilidade seria complementar o display LCD com alertas sonoros. A proposta poderia beneficiar pessoas que não percebem facilmente as mensagens visuais, oferecendo outra forma de aviso.</p>
+            <p>Essa melhoria é uma proposta conceitual e não representa uma função já construída ou testada.</p>
+        </article>
+
+        <article class="content-section">
+            <h2>Conclusão e referências</h2>
+            <p>Os projetos demonstram como a robótica pode oferecer diferentes formas de comunicação. A combinação de recursos visuais, sonoros e escritos pode contribuir para a acessibilidade e a qualidade de vida.</p>
+            <ul>
+                <li><a href="https://docs.arduino.cc/" target="_blank" rel="noopener">Documentação oficial Arduino</a></li>
+                <li><a href="https://www.itu.int/" target="_blank" rel="noopener">União Internacional de Telecomunicações</a></li>
+                <li><a href="https://www.w3.org/TR/WCAG22/" target="_blank" rel="noopener">W3C — Diretrizes de Acessibilidade WCAG 2.2</a></li>
+            </ul>
+        </article>
+
+        <button class="btn" data-go="tecnociencia">Próxima disciplina: Física e TecnoCiência →</button>
+    </div>
+</section>
+
+<!-- FÍSICA E TECNOCIÊNCIA -->
+<section class="page" id="tecnociencia">
+    <div class="banner banner-ciencia">
+        <span>DISCIPLINA 03</span>
+        <h1>Física e TecnoCiência</h1>
+        <p>Ciência do Som — Audição, Acessibilidade e Qualidade de Vida.</p>
+    </div>
+
+    <div class="container conteudo">
+        <article class="content-section">
+            <h2>Introdução</h2>
+            <p>A investigação teve como objetivo observar os níveis sonoros em diferentes ambientes escolares, relacionando os resultados à saúde auditiva, ao conforto e à acessibilidade.</p>
+        </article>
+
+        <article class="content-section">
+            <h2>Conceitos físicos</h2>
+            <h3>O que é o som?</h3>
+            <p>O som é uma onda mecânica produzida por vibrações. Ele precisa de um meio material, como ar, água ou sólidos, para se propagar.</p>
+            <h3>Frequência</h3>
+            <p>A frequência representa o número de vibrações por segundo e é medida em hertz (Hz). Sons graves possuem frequências menores, enquanto sons agudos possuem frequências maiores.</p>
+            <h3>Intensidade sonora</h3>
+            <p>A intensidade está relacionada à energia transportada pela onda sonora. Na percepção cotidiana, está associada à sensação de som fraco ou forte.</p>
+            <h3>Decibéis</h3>
+            <p>O nível sonoro é frequentemente expresso em decibéis (dB), uma escala logarítmica.</p>
+        </article>
+
+        <article class="content-section">
+            <h2>Audição humana e saúde auditiva</h2>
+            <p>A faixa de frequência audível por um ser humano saudável é aproximadamente de 20 Hz a 20.000 Hz, podendo variar conforme a idade e as condições individuais.</p>
+            <p>A exposição prolongada a sons intensos pode prejudicar a audição. O ruído também pode atrapalhar a concentração, a comunicação e o bem-estar.</p>
+            <p>É importante evitar exposição desnecessária a sons muito altos e respeitar momentos de descanso auditivo.</p>
+        </article>
+
+        <article class="content-section">
+            <h2>Investigação dos ambientes escolares</h2>
+            <p>O grupo utilizou um aplicativo de decibelímetro em celular para registrar as médias indicadas nos diferentes ambientes.</p>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>Local</th><th>Horário</th><th>Média</th><th>Condições observadas</th></tr></thead>
+                    <tbody>
+                        <tr><td>Pátio da escola</td><td>07h45</td><td>81 dB</td><td>Havia pessoas conversando.</td></tr>
+                        <tr><td>Quadra coberta</td><td>07h52</td><td>75 dB</td><td>Havia uma turma na arquibancada.</td></tr>
+                        <tr><td>Sala de aula</td><td>07h58</td><td>51 dB</td><td>Estava vazia, apenas com os integrantes do grupo.</td></tr>
+                        <tr><td>Corredor das salas</td><td>08h04</td><td>71 dB</td><td>As portas das salas estavam abertas e havia aulas acontecendo.</td></tr>
+                        <tr><td>Biblioteca</td><td>08h08</td><td>50 dB</td><td>Havia pessoas, mas estavam quietas.</td></tr>
+                        <tr><td>Refeitório</td><td>08h17</td><td>50 dB</td><td>Estava vazio, sem pessoas.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>Os valores representam médias (AVG) indicadas pelo aplicativo.</p>
+        </article>
+
+        <article class="content-section">
+            <h2>Gráfico dos níveis sonoros</h2>
+            <div id="sound-chart" class="bar-chart" role="img" aria-label="Gráfico das médias sonoras dos seis ambientes escolares."></div>
+            <p>Os valores apresentados no gráfico correspondem exatamente às medições registradas na tabela.</p>
+        </article>
+
+        <article class="content-section">
+            <h2>Análise dos resultados</h2>
+            <h3>9. Qual local apresentou o maior valor? E o menor?</h3>
+            <p>O pátio apresentou o maior valor, com 81 dB. A biblioteca e o refeitório apresentaram os menores valores, ambos com 50 dB.</p>
+            <h3>10. Que situações podem explicar as diferenças?</h3>
+            <p>A movimentação e as atividades ajudam a explicar as diferenças. No pátio havia pessoas conversando; na quadra havia uma turma na arquibancada; no corredor, portas abertas e aulas acontecendo.</p>
+            <h3>11. Os valores mudaram conforme o horário?</h3>
+            <p>Os registros foram feitos em horários diferentes e em locais com movimentações distintas. Como não foram realizadas medições repetidas nos mesmos locais, não é possível atribuir as diferenças somente ao horário.</p>
+            <h3>12. Quais são as limitações?</h3>
+            <p>O microfone do celular, a posição do aparelho, a distância da fonte sonora e o aplicativo podem afetar a leitura. O aplicativo fornece estimativas e não é um instrumento profissional calibrado.</p>
+            <h3>13. Que mudanças poderiam melhorar os ambientes?</h3>
+            <p>Materiais de absorção sonora, manutenção de equipamentos, organização dos espaços, sinalização visual e criação de um espaço tranquilo podem contribuir para o conforto.</p>
+        </article>
+
+        <article class="content-section">
+            <h2>Acessibilidade e inclusão</h2>
+            <p>O excesso de ruído pode dificultar a comunicação e a compreensão de instruções. Algumas pessoas apresentam hipersensibilidade auditiva e podem sentir desconforto em ambientes com muitos sons simultâneos.</p>
+            <p>Isso pode ocorrer em algumas pessoas autistas, mas as experiências e necessidades variam de pessoa para pessoa. Por isso, é importante oferecer ambientes acolhedores e alternativas de participação.</p>
+        </article>
+
+        <article class="content-section">
+            <h2>Tecnologias e estratégias</h2>
+            <ul><li>Materiais de absorção sonora;</li><li>Manutenção de equipamentos;</li><li>Organização dos ambientes;</li><li>Sinalização visual;</li><li>Espaços tranquilos.</li></ul>
+        </article>
+
+        <article class="content-section">
+            <h2>Propostas de melhoria</h2>
+            <div class="card"><h3>Proposta 1 — Melhorar o conforto acústico da quadra</h3><p>Avaliar a instalação de materiais adequados de absorção sonora, considerando segurança e orientação técnica.</p></div>
+            <div class="card"><h3>Proposta 2 — Reduzir o ruído no corredor</h3><p>Quando possível, manter as portas das salas fechadas e organizar a circulação de pessoas, sem prejudicar ventilação ou acessibilidade.</p></div>
+            <div class="card"><h3>Proposta complementar — Espaço tranquilo</h3><p>Disponibilizar um ambiente de menor estímulo sonoro para estudantes que precisem de uma pausa.</p></div>
+        </article>
+
+        <article class="content-section">
+            <h2>Uso crítico da Inteligência Artificial</h2>
+            <p>O ChatGPT foi utilizado como apoio para organizar explicações e estruturar a apresentação do trabalho.</p>
+            <p>Os prompts apresentados como exemplos são sugestões e não devem ser considerados registros literais de conversas ou medições.</p>
+            <p>As informações devem ser verificadas em fontes confiáveis. A IA pode cometer erros, simplificar demais ou apresentar informações sem contexto.</p>
+        </article>
+
+        <article class="content-section">
+            <h2>Conclusão</h2>
+            <p>A investigação mostra como a Física permite compreender o som e analisar os ambientes em que vivemos. A tecnologia pode ajudar a observar dados e propor melhorias, enquanto a acessibilidade exige considerar diferentes formas de perceber e participar.</p>
+            <h3>Referências</h3>
+            <ul>
+                <li><a href="https://www.who.int/news-room/fact-sheets/detail/deafness-and-hearing-loss" target="_blank" rel="noopener">Organização Mundial da Saúde — Audição</a></li>
+                <li><a href="https://www.nidcd.nih.gov/health/noise-induced-hearing-loss" target="_blank" rel="noopener">NIDCD — Perda auditiva induzida por ruído</a></li>
+                <li><a href="https://www.cdc.gov/niosh/noise/" target="_blank" rel="noopener">CDC/NIOSH — Ruído</a></li>
+            </ul>
+        </article>
+
+        <button class="btn" data-go="inicio">Voltar ao início ↑</button>
+    </div>
+</section>
 
 </main>
-
 
 <footer>
     <p>Projeto Integrador — Tecnologia, acessibilidade e qualidade de vida.</p>
